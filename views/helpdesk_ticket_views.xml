@@ -6,7 +6,9 @@
         <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
         <field name="arch" type="xml">
             <field name="team_id" position="after">
+                <field name="objective_id"/>
                 <field name="micro_objective_id"/>
+                <field name="is_micro_objective"/>
                 <field name="goal_id" readonly="1"/>
             </field>
         </field>
@@ -18,7 +20,9 @@
         <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
         <field name="arch" type="xml">
             <field name="team_id" position="after">
+                <field name="objective_id" optional="show"/>
                 <field name="micro_objective_id" optional="show"/>
+                <field name="is_micro_objective" optional="hide"/>
                 <field name="goal_id" optional="hide"/>
             </field>
         </field>
@@ -30,9 +34,35 @@
         <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search"/>
         <field name="arch" type="xml">
             <field name="team_id" position="after">
+                <field name="objective_id"/>
                 <field name="micro_objective_id"/>
                 <field name="goal_id"/>
             </field>
+        </field>
+    </record>
+
+    <record id="view_goals_goal_form_inherit_helpdesk" model="ir.ui.view">
+        <field name="name">goals.goal.form.inherit.helpdesk</field>
+        <field name="model">goals.goal</field>
+        <field name="inherit_id" ref="goals_management.view_goals_goal_form"/>
+        <field name="arch" type="xml">
+            <page name="page_tasks" position="after">
+                <page name="page_tickets" string="Tickets" invisible="period_type != 'week'">
+                    <div class="oe_button_box" name="ticket_buttons">
+                        <button name="%(action_goals_link_ticket_wizard)d" type="action" string="Vincular tickets existentes" class="btn btn-secondary" invisible="period_type != 'week'"/>
+                    </div>
+                    <field name="ticket_ids" options="{'no_create': True}">
+                        <list string="Tickets" editable="bottom">
+                            <field name="name" readonly="1"/>
+                            <field name="partner_id" optional="show" readonly="1"/>
+                            <field name="team_id" optional="show" readonly="1"/>
+                            <field name="stage_id" optional="show" readonly="1"/>
+                            <field name="user_id" widget="many2one_avatar_user" optional="show" readonly="1"/>
+                            <field name="priority" widget="priority" optional="hide" readonly="1"/>
+                        </list>
+                    </field>
+                </page>
+            </page>
         </field>
     </record>
 </odoo>
