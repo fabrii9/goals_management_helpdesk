@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_helpdesk_ticket_form_inherit_goals" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.form.inherit.goals</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_ticket_view_form"/>
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="micro_objective_id"/>
+                <field name="goal_id" readonly="1"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_tree_inherit_goals" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.tree.inherit.goals</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="micro_objective_id" optional="show"/>
+                <field name="goal_id" optional="hide"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_helpdesk_ticket_search_inherit_goals" model="ir.ui.view">
+        <field name="name">helpdesk.ticket.search.inherit.goals</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="inherit_id" ref="helpdesk.helpdesk_tickets_view_search"/>
+        <field name="arch" type="xml">
+            <field name="team_id" position="after">
+                <field name="micro_objective_id"/>
+                <field name="goal_id"/>
+            </field>
+        </field>
+    </record>
+</odoo>
