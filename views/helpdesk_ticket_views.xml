@@ -65,4 +65,29 @@
             </page>
         </field>
     </record>
+
+    <record id="view_goals_micro_objective_form_inherit_helpdesk" model="ir.ui.view">
+        <field name="name">goals.micro.objective.form.inherit.helpdesk</field>
+        <field name="model">goals.micro.objective</field>
+        <field name="inherit_id" ref="goals_management.view_goals_micro_objective_form"/>
+        <field name="arch" type="xml">
+            <page name="page_tasks" position="after">
+                <page name="page_tickets" string="Tickets">
+                    <div class="oe_button_box" name="ticket_buttons">
+                        <button name="%(action_goals_link_ticket_micro_wizard)d" type="action" string="Vincular tickets existentes" class="btn btn-secondary"/>
+                    </div>
+                    <field name="ticket_ids" options="{'no_create': True}">
+                        <list string="Tickets" editable="bottom">
+                            <field name="name" readonly="1"/>
+                            <field name="partner_id" optional="show" readonly="1"/>
+                            <field name="team_id" optional="show" readonly="1"/>
+                            <field name="stage_id" optional="show" readonly="1"/>
+                            <field name="user_id" widget="many2one_avatar_user" optional="show" readonly="1"/>
+                            <field name="priority" widget="priority" optional="hide" readonly="1"/>
+                        </list>
+                    </field>
+                </page>
+            </page>
+        </field>
+    </record>
 </odoo>

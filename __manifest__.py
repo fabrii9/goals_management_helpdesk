@@ -19,6 +19,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/goals_link_ticket_wizard_views.xml',
+        'views/goals_link_ticket_micro_wizard_views.xml',
         'views/helpdesk_ticket_views.xml',
     ],
     'installable': True,

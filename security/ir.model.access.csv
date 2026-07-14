@@ -1,3 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_goals_link_ticket_wizard_user,goals.link.ticket.wizard.user,model_goals_link_ticket_wizard,goals_management.group_goals_user,1,1,1,1
 access_goals_link_ticket_wizard_manager,goals.link.ticket.wizard.manager,model_goals_link_ticket_wizard,goals_management.group_goals_manager,1,1,1,1
+access_goals_link_ticket_micro_wizard_user,goals.link.ticket.micro.wizard.user,model_goals_link_ticket_micro_wizard,goals_management.group_goals_user,1,1,1,1
+access_goals_link_ticket_micro_wizard_manager,goals.link.ticket.micro.wizard.manager,model_goals_link_ticket_micro_wizard,goals_management.group_goals_manager,1,1,1,1

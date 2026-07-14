@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_goals_link_ticket_micro_wizard_form" model="ir.ui.view">
+        <field name="name">goals.link.ticket.micro.wizard.form</field>
+        <field name="model">goals.link.ticket.micro.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Vincular tickets">
+                <group>
+                    <field name="micro_objective_id" options="{'no_create': True, 'no_open': True}"/>
+                    <field name="ticket_ids" widget="many2many_tags" options="{'no_create': True}" domain="[('micro_objective_id', '=', False)]"/>
+                </group>
+                <footer>
+                    <button name="action_link" string="Vincular" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_goals_link_ticket_micro_wizard" model="ir.actions.act_window">
+        <field name="name">Vincular tickets existentes</field>
+        <field name="res_model">goals.link.ticket.micro.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="context">{'default_micro_objective_id': active_id}</field>
+    </record>
+</odoo>
