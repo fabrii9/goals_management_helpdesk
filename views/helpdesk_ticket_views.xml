@@ -51,7 +51,7 @@
                     <div class="oe_button_box" name="ticket_buttons">
                         <button name="%(action_goals_link_ticket_wizard)d" type="action" string="Vincular tickets existentes" class="btn btn-secondary" invisible="period_type != 'week'"/>
                     </div>
-                    <field name="ticket_ids" options="{'no_create': True}">
+                    <field name="ticket_ids">
                         <list string="Tickets" editable="bottom">
                             <field name="name"/>
                             <field name="partner_id" optional="show"/>
